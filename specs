@@ -1,0 +1,66 @@
+> Welcome Page
+> Animations
+> Show the top movies
+> search for a sepecific movie
+> get a movie info
+> scroll to side
+
+
+> make icons
+> manifest
+> react context
+
+
+
+Now Playing
+Popularity
+Top Rated
+Upcoming
+
+<Top Movies /> Popular movies 
+<Upcoming /> Upcoming movies
+<
+
+
+
+popularity: 130.907
+vote_count: 3195
+video: false
+poster_path: "/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg"
+id: 496243
+adult: false
+backdrop_path: "/TU9NIjwzjoKPwQHoHshkFcQUCG.jpg"
+original_language: "ko"
+original_title: "기생충"
+genre_ids: (3) [35, 18, 53]
+title: "Parasite"
+vote_average: 8.6
+overview: "All unemployed, Ki-taek's family takes peculiar interest in the wealthy and glamorous Parks for their livelihood until they get entangled in an unexpected incident."
+release_date: "2019-05-30"
+
+
+adult: false
+backdrop_path: "/2WgieNR1tGHlpJUsolbVzbUbE1O.jpg"
+belongs_to_collection: null
+budget: 100000000
+genres: (3) [{…}, {…}, {…}]
+homepage: "https://www.1917.movie/"
+id: 530915
+imdb_id: "tt8579674"
+original_language: "en"
+original_title: "1917"
+overview: "At the height of the First World War, two young British soldiers, Schofield and Blake are given a seemingly impossible mission. In a race against time, they must cross enemy territory and deliver a message that will stop a deadly attack on hundreds of soldiers—Blake's own brother among them."
+popularity: 197.27
+poster_path: "/iZf0KyrE25z1sage4SYFLCCrMi9.jpg"
+production_companies: (4) [{…}, {…}, {…}, {…}]
+production_countries: (2) [{…}, {…}]
+release_date: "2019-12-10"
+revenue: 200483309
+runtime: 119
+spoken_languages: (3) [{…}, {…}, {…}]
+status: "Released"
+tagline: "Time is the enemy"
+title: "1917"
+video: false
+vote_average: 8.1
+vote_count: 2331
