@@ -33,7 +33,7 @@ const GridRow = styled.section`
   ::-webkit-scrollbar-thumb {
     background: #292929; 
     border-radius: 5px;
-    width: 150px;
+    width: 100px;
   }
 `
 
