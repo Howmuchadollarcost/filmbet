@@ -10,15 +10,20 @@ const MovieProvider = props => {
   const [upComingMovies, setUpComingMovies] = useState([]);
   const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
 
+  const [loading, setLoading] = useState(false);
+
   const fetchTopMovies = async () => {
+    setLoading(true);
     try {
       const response = await fetch(
         `https://api.themoviedb.org/3/movie/popular?api_key=${TMDB_KEY}&language=en-US`
       );
       const data = await response.json();
       setTopMovie(data.results);
+      setLoading(false);
     } catch (error) {
       console.error("Error", error);
+      setLoading(false);
     }
   };
 
@@ -71,7 +76,8 @@ const MovieProvider = props => {
         movies: topMovie,
         highestRatedMovies: highestRatedMovies,
         upComingMovies: upComingMovies,
-        nowPlayingMovies: nowPlayingMovies
+        nowPlayingMovies: nowPlayingMovies,
+        loading: loading
       }}
     >
       {props.children}

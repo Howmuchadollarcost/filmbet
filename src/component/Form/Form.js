@@ -7,11 +7,18 @@ const SearchForm = styled.section`
   justify-content: center;
 
   input{
+    width: 70%;
+    height: 38px;
     position:absolute;
     top:-80px;
-    padding: 15px 50px;
-    border: 2px solid red;
+    padding: 6px 10px;
+    border: 1px solid #d1d1d1;
+    border-radius:3px;
+    box-shadow: none;
+    appearance: none;
+    box-sizing: border-box;
   }
+
 `;
 
 function index(props) {

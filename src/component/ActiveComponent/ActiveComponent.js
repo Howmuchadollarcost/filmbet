@@ -1,14 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
+import Loading from "../Loading/Loading";
+import { MovieConsumer } from "../../MovieContext";
+
 const TMDB_KEY = "9b5af6d9f992e2550944919a011154b7";
 const API = "https://api.themoviedb.org/3/movie/";
-
 
 const Line = styled.hr`
   width: 80%;
   background: #fff;
-`
+`;
 
 const Container = styled.main`
   position: relative;
@@ -17,14 +19,14 @@ const Container = styled.main`
 
   @media (min-width: 768px) {
     width: 550px;
-}
+  }
 
   @media (min-width: 992px) {
-      width: 700px;
+    width: 700px;
   }
 
   @media (min-width: 1200px) {
-      width: 1170px;
+    width: 1170px;
   }
 `;
 
@@ -95,16 +97,19 @@ class ActiveComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      movieDetail: {}
+      movieDetail: {},
+      loading: false
     };
   }
 
   fetchMovieDetail = async id => {
+    this.setState({ loading: true });
     const response = await fetch(
       `${API}${id}?api_key=${TMDB_KEY}&language=en-US`
     );
     const data = await response.json();
     this.setState({ movieDetail: data });
+    this.setState({ loading: false });
   };
 
   componentDidMount() {
@@ -114,54 +119,70 @@ class ActiveComponent extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
-      <Line />
-      <Container>
-        <MovieRow>
-          <MovieLeft>
-            <MovieImage
-              src={`https://image.tmdb.org/t/p/w500/${this.state.movieDetail.poster_path}`}
-              alt={this.state.movieDetail.title}
-            />
-          </MovieLeft>
+      <MovieConsumer>
+        {({ loading }) => (
+          <React.Fragment>
+            {loading ? (
+              <Loading />
+            ) : (
+              <React.Fragment>
+                <Line />
+                <Container>
+                  <MovieRow>
+                    <MovieLeft>
+                      <MovieImage
+                        src={`https://image.tmdb.org/t/p/w500/${this.state.movieDetail.poster_path}`}
+                        alt={this.state.movieDetail.title}
+                      />
+                    </MovieLeft>
 
-          <MovieRight>
-            <MovieTitle>{this.state.movieDetail.title}</MovieTitle>
-            <MovieDesc>
-              <div className="rating">
-                {this.state.movieDetail.vote_average}
-              </div>
-              <div className="genres">
-                <div className="genre">Drama</div>
-                <div className="genre">Crime</div>
-              </div>
-              <div className="desc">{this.state.movieDetail.adult}</div>
-            </MovieDesc>
-            <MovieOverview>{this.state.movieDetail.overview}</MovieOverview>
-            <MovieInfo>
-              <p>
-                <span className="Movie__info__title">Release date:</span>{" "}
-                {this.state.movieDetail.release_date}
-              </p>
-              <p>
-                <span className="Movie__info__title">Duration:</span>{" "}
-                {this.state.movieDetail.runtime}
-              </p>
-              <p>
-                <span className="Movie__info__title">Producer:</span>Q.
-                Tarantino
-              </p>
-              <p>
-                <span className="Movie__info__title">
-                  Originial Language:
-                </span>
-                {this.state.movieDetail.original_language}
-              </p>
-            </MovieInfo>
-          </MovieRight>
-        </MovieRow>
-      </Container>
-    </React.Fragment>
+                    <MovieRight>
+                      <MovieTitle>{this.state.movieDetail.title}</MovieTitle>
+                      <MovieDesc>
+                        <div className="rating">
+                          {this.state.movieDetail.vote_average}
+                        </div>
+                        <div className="genres">
+                          <div className="genre">Drama</div>
+                          <div className="genre">Crime</div>
+                        </div>
+                        <div className="desc">
+                          {this.state.movieDetail.adult}
+                        </div>
+                      </MovieDesc>
+                      <MovieOverview>
+                        {this.state.movieDetail.overview}
+                      </MovieOverview>
+                      <MovieInfo>
+                        <p>
+                          <span className="Movie__info__title">
+                            Release date:
+                          </span>{" "}
+                          {this.state.movieDetail.release_date}
+                        </p>
+                        <p>
+                          <span className="Movie__info__title">Duration:</span>{" "}
+                          {this.state.movieDetail.runtime}
+                        </p>
+                        <p>
+                          <span className="Movie__info__title">Producer:</span>
+                          Q. Tarantino
+                        </p>
+                        <p>
+                          <span className="Movie__info__title">
+                            Originial Language:
+                          </span>
+                          {this.state.movieDetail.original_language}
+                        </p>
+                      </MovieInfo>
+                    </MovieRight>
+                  </MovieRow>
+                </Container>
+              </React.Fragment>
+            )}
+          </React.Fragment>
+        )}
+      </MovieConsumer>
     );
   }
 }
