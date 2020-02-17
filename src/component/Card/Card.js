@@ -43,7 +43,7 @@ const CardText = styled.p`
         padding: 0 5px;
         background:#3D3D3D;
         color: #fff;
-        border-radius: 2px;
+        border-radius: 1px;
     }
 `
 

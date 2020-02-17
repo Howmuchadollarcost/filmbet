@@ -103,17 +103,33 @@ class ActiveComponent extends React.Component {
 
   fetchMovieDetail = async id => {
     this.setState({ loading: true });
-    const response = await fetch(
-      `${API}${id}?api_key=${TMDB_KEY}&language=en-US`
-    );
-    const data = await response.json();
-    this.setState({ movieDetail: data });
-    this.setState({ loading: false });
+    try {
+      const response = await fetch(
+        `${API}${id}?api_key=${TMDB_KEY}&language=en-US`
+      );
+      const data = await response.json();
+      this.setState({ movieDetail: data });
+      this.setState({ loading: false });
+    } catch (error) {
+      console.error("Error", error);
+      this.setState({ loading: false });
+    }
+
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     const id = this.props.location.pathname.slice(1);
-    this.fetchMovieDetail(id);
+    try {
+      const response = await fetch(
+        `${API}${id}?api_key=${TMDB_KEY}&language=en-US`
+      );
+      const data = await response.json();
+      this.setState({ movieDetail: data });
+      this.setState({ loading: false });
+    } catch (error) {
+      console.error("Error", error);
+      this.setState({ loading: false });
+    }
   }
 
   render() {
@@ -129,11 +145,17 @@ class ActiveComponent extends React.Component {
                 <Container>
                   <MovieRow>
                     <MovieLeft>
-                      <MovieImage
-                        src={`https://image.tmdb.org/t/p/w500/${this.state.movieDetail.poster_path}`}
-                        alt={this.state.movieDetail.title}
-                      />
+                      {
+                        (this.state.movieDetail.poster_path) ? (
+                          <MovieImage
+                          src={`https://image.tmdb.org/t/p/w500/${this.state.movieDetail.poster_path}` || {}}
+                          alt={this.state.movieDetail.title}
+                        />
+                        ) : null
+                      }
                     </MovieLeft>
+
+                    {console.log(loading)}
 
                     <MovieRight>
                       <MovieTitle>{this.state.movieDetail.title}</MovieTitle>

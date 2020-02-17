@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { MovieConsumer } from "../../MovieContext";
 import Loading from "../../component/Loading/Loading";
-import Card from '../../component/Card/Card';
+import Card from "../../component/Card/Card";
 
 const Grid = styled.div`
   display: flex;
@@ -32,7 +32,7 @@ const GridCol = styled.section`
 function SearchedMovie(props) {
   return (
     <MovieConsumer>
-      {({ loading, data,active }) => (
+      {({ loading, data, active }) => (
         <React.Fragment>
           {loading ? (
             <Loading />
@@ -43,12 +43,14 @@ function SearchedMovie(props) {
                   {data.results.map((movie, i) => {
                     return (
                       <GridCol key={i}>
-                        <Card
-                          title={movie.title}
-                          image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                          rating={movie.vote_average}
-                          id={movie.id}
-                        />
+                        {movie.poster_path ? (
+                          <Card
+                            title={movie.title}
+                            image={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+                            rating={movie.vote_average}
+                            id={movie.id}
+                          />
+                        ) : null}
                       </GridCol>
                     );
                   })}

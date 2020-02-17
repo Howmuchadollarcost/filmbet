@@ -18,7 +18,7 @@ const Hero = styled.section`
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 3.5rem;
-    font-weight: 100;
+    font-weight: 500;
   }
 
 `;

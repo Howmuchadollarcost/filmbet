@@ -15,6 +15,7 @@ const Grid = styled.div`
   h1{
     color: #fff;
     text-transform: uppercase;
+    font-weight: 300;
   }
 `
 
