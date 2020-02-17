@@ -11,6 +11,13 @@ const CardWrapper = styled.div`
     a{
         width: 200px;
         text-decoration:none;
+
+
+        :hover{
+            transform: scale(1.1);
+            overflow: hidden;
+            transition: 0.2s ease-in-out all;
+        }
     }
 
 `
@@ -27,7 +34,6 @@ const CardImage = styled.img`
 `
 const CardText = styled.p`
     text-align:center;
-    color: #fff;
     width: 200px;
     display:flex;
     justify-content:center;

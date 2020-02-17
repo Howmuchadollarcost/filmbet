@@ -13,8 +13,8 @@ const Grid = styled.div`
   width: 100%;
 
   h1{
-    font-family: "Gelasio", serif;
     color: #fff;
+    text-transform: uppercase;
   }
 `
 
@@ -23,6 +23,7 @@ const GridRow = styled.section`
   flex-direction: row;
   width: 80%;
   overflow: auto;
+  overflow-y: hidden;
 
   ::-webkit-scrollbar{
     background: none;

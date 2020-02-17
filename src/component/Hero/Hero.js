@@ -17,10 +17,8 @@ const Hero = styled.section`
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: white;
     font-size: 3.5rem;
-    font-family: "Gelasio", serif;
-    font-weight: 300;
+    font-weight: 100;
   }
 
 `;

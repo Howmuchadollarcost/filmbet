@@ -1,11 +1,7 @@
 import React from "react";
 
-import Hero from "../../component/Hero/Hero";
-import Form from "../../component/Form/Form";
-import TopMovies from "../../component/TopMovies/TopMovies";
-import UpcomingMovies from "../../component/UpcomingMovies/UpcomingMovies";
-import HighestRatedMovies from "../../component/HighestRatedMovies/HighestRatedMovies";
-import NowPlaying from "../../component/NowPlaying/NowPlaying";
+import MovieCategory from "../MovieCatergory/MovieCategory";
+import SearchedMovie from "../SearchedMovie/SearchedMovie";
 import Loading from "../../component/Loading/Loading";
 
 import { MovieConsumer } from "../../MovieContext";
@@ -13,22 +9,15 @@ import { MovieConsumer } from "../../MovieContext";
 function FrontPage(props) {
   return (
     <MovieConsumer>
-      {({ loading }) => (
-        <React.Fragment>
-          {loading ? (
-            <Loading />
-          ) : (
-            <React.Fragment>
-              <Hero />
-              <Form />
-              <TopMovies />
-              <NowPlaying />
-              <UpcomingMovies />
-              <HighestRatedMovies />
-            </React.Fragment>
-          )}
-        </React.Fragment>
-      )}
+      {({ loading, data, active }) => {
+        if (loading) {
+          return <Loading />;
+        } else if (data.length !== 0 && active) {
+          return <SearchedMovie />;
+        } else {
+           return <MovieCategory />;
+        }
+      }}
     </MovieConsumer>
   );
 }

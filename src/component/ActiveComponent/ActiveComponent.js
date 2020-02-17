@@ -56,8 +56,7 @@ const MovieRight = styled.div`
 
 const MovieTitle = styled.h2`
   font-size: 3rem;
-  color: #fff;
-  font-family: monospace;
+  text-transform: uppercase;
   margin: 25px 15px;
 `;
 const MovieDesc = styled.div`
