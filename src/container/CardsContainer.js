@@ -7,7 +7,7 @@ const Grid = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0;
+  margin: 25px 0;
   padding: 0 0;
   overflow:hidden;
   width: 100%;

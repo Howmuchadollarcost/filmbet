@@ -62,13 +62,17 @@ const MovieTitle = styled.h2`
 const MovieDesc = styled.div`
   display: inline-flex;
   align-items: center;
-  width: 250px;
+  width: 400px;
   justify-content: space-around;
-  margin: 20px 0;
+  margin: 20px 10px;
+
+  .genres{
+    display: flex;
+    flex-direction:column;
+  }
 
   .genre {
-    display: inline;
-    padding-left: 5px;
+    padding-bottom: 5px;
   }
 
   .rating {
@@ -101,24 +105,8 @@ class ActiveComponent extends React.Component {
     };
   }
 
-  fetchMovieDetail = async id => {
-    this.setState({ loading: true });
-    try {
-      const response = await fetch(
-        `${API}${id}?api_key=${TMDB_KEY}&language=en-US`
-      );
-      const data = await response.json();
-      this.setState({ movieDetail: data });
-      this.setState({ loading: false });
-    } catch (error) {
-      console.error("Error", error);
-      this.setState({ loading: false });
-    }
-
-  };
-
   async componentDidMount() {
-    const id = this.props.location.pathname.slice(1);
+    const id = window.location.pathname.slice(1);
     try {
       const response = await fetch(
         `${API}${id}?api_key=${TMDB_KEY}&language=en-US`
@@ -155,8 +143,6 @@ class ActiveComponent extends React.Component {
                       }
                     </MovieLeft>
 
-                    {console.log(loading)}
-
                     <MovieRight>
                       <MovieTitle>{this.state.movieDetail.title}</MovieTitle>
                       <MovieDesc>
@@ -164,8 +150,13 @@ class ActiveComponent extends React.Component {
                           {this.state.movieDetail.vote_average}
                         </div>
                         <div className="genres">
-                          <div className="genre">Drama</div>
-                          <div className="genre">Crime</div>
+                          {
+                            (this.state.movieDetail.genres) ?
+                            this.state.movieDetail.genres.map((genre,i) =>{
+                              return <div key={i} className="genre">{genre.name}</div>
+                            })
+                            : null
+                          }
                         </div>
                         <div className="desc">
                           {this.state.movieDetail.adult}
