@@ -8,7 +8,7 @@ const FooterContainer = styled.div`
     font-weight: 300;
     justify-content:center;
     align-items: center;
-    background: #000;
+    background: #2C2E32;
     height: 50px;
     span{
         padding: 0 5px;

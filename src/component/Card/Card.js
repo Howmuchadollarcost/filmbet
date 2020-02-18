@@ -2,6 +2,8 @@ import React from 'react';
 import styled from "styled-components";
 import {Link} from 'react-router-dom';
 
+import { Titleformatter } from '../../utils/TitleFormatter'
+
 const CardWrapper = styled.div`
     position: relative;
     display: flex;
@@ -53,7 +55,7 @@ function Card(props) {
             <Link to={`${props.id}`}>
             <CardBase>
                 <CardImage src={props.image} alt={props.title} />
-                <CardText> {titleCutter(props.title)} <span>{props.rating}</span></CardText>
+                <CardText> {Titleformatter(props.title)} <span>{props.rating}</span></CardText>
             </CardBase>   
             </Link> 
         </CardWrapper>
@@ -61,8 +63,5 @@ function Card(props) {
 }
 
 
-function titleCutter(title){
-    return title.length > 15 ?  title.slice(0,15) + "...": title;
-}
 
 export default Card;

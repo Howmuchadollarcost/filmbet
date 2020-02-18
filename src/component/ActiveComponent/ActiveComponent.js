@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import Loading from "../Loading/Loading";
 import { MovieConsumer } from "../../MovieContext";
+import { DateFormatter } from '../../utils/DateFormatter';
 
 const TMDB_KEY = "9b5af6d9f992e2550944919a011154b7";
 const API = "https://api.themoviedb.org/3/movie/";
@@ -169,16 +170,17 @@ class ActiveComponent extends React.Component {
                         <p>
                           <span className="Movie__info__title">
                             Release date:
-                          </span>{" "}
-                          {this.state.movieDetail.release_date}
+                          </span>
+                          {
+                          DateFormatter(this.state.movieDetail.release_date)}
                         </p>
                         <p>
                           <span className="Movie__info__title">Duration:</span>{" "}
                           {this.state.movieDetail.runtime}
                         </p>
                         <p>
-                          <span className="Movie__info__title">Producer:</span>
-                          Q. Tarantino
+                          <span className="Movie__info__title">Status:</span>
+                          {this.state.movieDetail.status}
                         </p>
                         <p>
                           <span className="Movie__info__title">
