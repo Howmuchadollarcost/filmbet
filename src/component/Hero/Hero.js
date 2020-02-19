@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
+const breakpointSm = `@media screen and (max-width: 450px)`;
+
+
 const Hero = styled.section`
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("https://www.studiodaily.com/wp-content/uploads/2019/09/downton-abbey_lead.jpg");
@@ -19,6 +22,11 @@ const Hero = styled.section`
     transform: translate(-50%, -50%);
     font-size: 3.5rem;
     font-weight: 500;
+    text-transform: uppercase;
+
+    ${breakpointSm}{
+      font-size: 2.5rem;
+    }
   }
 
 `;
@@ -26,7 +34,7 @@ const Hero = styled.section`
 function index(props) {
   return (
     <Hero>
-      <h1>Your Life Movies</h1>
+      <h1>Dine livsfilmer</h1>
     </Hero>
   );
 }

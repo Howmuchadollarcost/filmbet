@@ -33,7 +33,7 @@ function index(props) {
   return (
     <Navbar>
       <Link to="/">
-        <Logo>FilmBet</Logo>
+        <Logo>HvilkeFilm</Logo>
       </Link>
       <Link to="/">
         <GitSection>Git</GitSection>

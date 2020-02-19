@@ -40,7 +40,7 @@ function index() {
             type="text"
             name="query"
             id="query"
-            placeholder="Find Movie..."
+            placeholder="Søk Filmer..."
             autoComplete="off"
             onChange={handleChange}
           />

@@ -1,8 +1,30 @@
-*{
-    box-sizing: content-box;
+* {
+  box-sizing: content-box;
 }
 
-html{
-    background-color: #0D0D0D;
-    height: 100vh;
+html {
+  background-color: #0d0d0d;
+  height: 100vh;
+}
+
+.fade-enter {
+  opacity: 0.01;
+  transform: scale(1.1);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 300ms;
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.fade-exit-active {
+  opacity: 0.01;
+  transform: scale(1.1);
+  transition: all 300ms;
 }

@@ -1,36 +1,41 @@
 import React from 'react';
 import styled from "styled-components";
 
+import {MovieConsumer} from '../../MovieContext';
+
 const FooterContainer = styled.div`
     width: 100%;
     color: #858585;
-    display:flex;
+    display: ${props => props.active ? 'none' : 'flex'};
     font-weight: 300;
     justify-content:center;
     align-items: center;
     background: #2C2E32;
     height: 50px;
+
     span{
         padding: 0 5px;
-
-
         :first-child{
             color: #fff;
             font-weight: 500;
         }
     }
-
-
 `
 
 function Footer(props) {
     return (
-        <FooterContainer>
-            <span>Built With</span>
-            <span>React</span>
-            <span>styled-component</span>
-            <span>react-spinners</span>
-        </FooterContainer>
+        <MovieConsumer>
+            {({active}) => (
+            <FooterContainer active={active}>
+                <span>Built With</span>
+                <span>React</span>
+                <span>styled-component</span>
+                <span>react-spinners</span>
+            </FooterContainer>
+            )}
+
+
+        </MovieConsumer>
     );
 }
 

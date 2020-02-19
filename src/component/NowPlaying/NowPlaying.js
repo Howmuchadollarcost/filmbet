@@ -4,7 +4,7 @@ import { MovieConsumer } from "../../MovieContext";
 import CardsContainer from '../../container/CardsContainer';
 
 function NowPlaying(){
-  const title = "Now Playing"
+  const title = "Spiller Nå"
   return(
     <MovieConsumer>
       {({nowPlayingMovies}) => (

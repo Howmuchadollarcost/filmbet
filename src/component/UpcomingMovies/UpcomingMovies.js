@@ -4,7 +4,7 @@ import { MovieConsumer } from "../../MovieContext";
 import CardsContainer from '../../container/CardsContainer';
 
 function UpcomingMovies(){
-  const title = "Upcoming Movies"
+  const title = "Kommende Filmer"
   return(
     <MovieConsumer>
       {({upComingMovies}) => (

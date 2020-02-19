@@ -7,8 +7,8 @@ import Loading from "../../component/Loading/Loading";
 import Hero from "../../component/Hero/Hero"
 import Form from "../../component/Form/Form";
 
-
 import { MovieConsumer } from "../../MovieContext";
+ 
 
 function FrontPage(props) {
   return (

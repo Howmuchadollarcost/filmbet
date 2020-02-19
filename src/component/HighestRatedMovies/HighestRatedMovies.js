@@ -4,7 +4,7 @@ import { MovieConsumer } from "../../MovieContext";
 import CardsContainer from '../../container/CardsContainer';
 
 function HighestRatedMovies(){
-  const title = "Top Rated Movies"
+  const title = "Høyest rangerte filmer"
   return(
     <MovieConsumer>
       {({highestRatedMovies}) => (
