@@ -16,8 +16,10 @@ const SearchForm = styled.section`
     border: 1px solid #d1d1d1;
     border-radius:3px;
     box-shadow: none;
+    -webkit-box-shadow: none;
     appearance: none;
     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     outline:none;
     font-family: 'Roboto', sans-serif;
     background:#fff;
