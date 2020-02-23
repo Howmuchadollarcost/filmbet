@@ -20,7 +20,7 @@ const SearchForm = styled.section`
     box-sizing: border-box;
     outline:none;
     font-family: 'Roboto', sans-serif;
-
+    background:#fff;
 
     :focus{
       color: #333;
@@ -38,8 +38,6 @@ function index() {
         <SearchForm>
           <input
             type="text"
-            name="query"
-            id="query"
             placeholder="Søk Filmer..."
             autoComplete="off"
             onChange={handleChange}

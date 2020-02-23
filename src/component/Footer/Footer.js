@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import {MovieConsumer} from '../../MovieContext';
 
-const FooterContainer = styled.div`
+const FooterContainer = styled.footer`
     width: 100%;
     color: #858585;
     display: ${props => props.active ? 'none' : 'flex'};
