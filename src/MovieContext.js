@@ -21,6 +21,10 @@ const MovieProvider = props => {
   const [loading, setLoading] = useState(false);
 
 
+  const resetSearched = () =>{
+    setActive(false);
+    setData([]);
+  }
 
   const handleChange = (e) =>{
     if(e.target.value !== ''){
@@ -41,6 +45,7 @@ const MovieProvider = props => {
     }catch(error){
       console.log("Error", error);
       setLoading(false);
+
     }
   }
 
@@ -121,7 +126,8 @@ const MovieProvider = props => {
         loading: loading,
         handleChange: handleChange,
         data: data,
-        active:active
+        active:active,
+        resetSearched:resetSearched
       }}
     >
       {props.children}

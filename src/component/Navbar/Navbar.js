@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+import { MovieConsumer } from "../../MovieContext";
+
 const Navbar = styled.header`
   height: 70px;
   width: 100%;
@@ -31,14 +33,20 @@ const GitSection = styled.div`
 
 function index(props) {
   return (
-    <Navbar>
-      <Link to="/">
-        <Logo>HvilkeFilm</Logo>
-      </Link>
-      <Link to="/">
-        <GitSection>Git</GitSection>
-      </Link>
-    </Navbar>
+    <MovieConsumer>
+      {({ data,resetSearched }) => (
+        <React.Fragment>
+          <Navbar>
+            <Link to="/">
+              <Logo onClick={resetSearched}>HvilkeFilm</Logo>
+            </Link>
+            <Link to="/">
+              <GitSection>Git</GitSection>
+            </Link>
+          </Navbar>
+        </React.Fragment>
+      )}
+    </MovieConsumer>
   );
 }
 

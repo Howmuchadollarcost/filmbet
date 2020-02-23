@@ -16,6 +16,7 @@ const Grid = styled.div`
     color: #fff;
     text-transform: uppercase;
     font-weight: 300;
+    text-align:center;
   }
 `
 

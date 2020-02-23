@@ -15,6 +15,7 @@ const FooterContainer = styled.div`
 
     span{
         padding: 0 5px;
+        font-size: 0.8em;
         :first-child{
             color: #fff;
             font-weight: 500;
