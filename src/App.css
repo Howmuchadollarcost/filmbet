@@ -2,6 +2,10 @@
   box-sizing: content-box;
 }
 
+.App{
+  min-width: 400px;
+  width:100%;
+}
 html {
   background-color: #0d0d0d;
   height: 100vh;
