@@ -35,9 +35,9 @@ function index(props) {
       <Link to="/">
         <Logo>HvilkeFilm</Logo>
       </Link>
-      <Link to="/">
+      <a href="https://github.com/Howmuchadollarcost/filmbet" target="_blank" rel="noopener noreferrer">
         <GitSection>Git</GitSection>
-      </Link>
+      </a>
     </Navbar>
   );
 }
